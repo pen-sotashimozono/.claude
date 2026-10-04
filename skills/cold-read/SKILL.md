@@ -1,6 +1,6 @@
 ---
 name: cold-read
-description: Have a passage of the notes read by a reader who did not write it, before showing it to the author. The reader also audits it against every rule in force and checks each citation against its PDF or source. Use after writing or rewriting any section, subsection or proof - the author reads only what has passed this. Finds where a reader loses the thread, steps that do not follow, and goals that the text announces but does not reach.
+description: Have a passage of the notes read by a reader who did not write it, before showing it to the author. The reader also audits it against every rule in force and checks each citation against its PDF or TeX source. Use after writing or rewriting any section, subsection or proof - the author reads only what has passed this. Finds where a reader loses the thread, steps that do not follow, and goals that the text announces but does not reach.
 ---
 
 # Cold read: a first reader before the author
@@ -48,9 +48,11 @@ of this repository only". Give the reader the paths and have it read them
 itself. Do not paraphrase the rules into the brief, because a paraphrase drops
 the ones the writer already tends to forget.
 
-The reader also checks **every citation of the passage against its source**:
-`papers/src/<bibkey>.tex` or `.txt` first, `papers/<bibkey>.pdf` where the
-text extraction is unclear or the source is a scan. For each `\cite` it finds
+The reader also checks **every citation of the passage against its source**,
+which is the TeX source `papers/src/<bibkey>.tex` or the PDF
+`papers/<bibkey>.pdf`. A `papers/src/<bibkey>.txt` is an extraction of the PDF
+that loses symbols: it serves to find the place, and the PDF page is then
+read. For each `\cite` the reader finds
 the section or equation the text names and confirms that it says what the
 passage attributes to it, in the stated notation.
 
@@ -83,9 +85,10 @@ Report briefly, most important first:
    Go through the rules one by one and list every violation in the passage,
    quoted, with the rule it breaks. Say explicitly which rule files you
    checked and found no violation of.
-7. Citations. For every \cite in the passage, open papers/src/<bibkey>.tex or
-   .txt, and papers/<bibkey>.pdf where that is unclear, and find the section
-   or equation the passage names. Report per citation: confirmed (with the
+7. Citations. For every \cite in the passage, open the TeX source
+   papers/src/<bibkey>.tex or the PDF papers/<bibkey>.pdf (a .txt in
+   papers/src is only an extraction: use it to locate the page, then read the
+   PDF), and find the section or equation the passage names. Report per citation: confirmed (with the
    location you found), wrong or imprecise (what the source actually says), or
    could not be checked (why). A source that is missing or unreadable is
    reported, not passed.
