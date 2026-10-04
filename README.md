@@ -12,6 +12,7 @@ as a git submodule at `.claude`.
 | `rules/structure.md` | draft marking, c.f. references, floats |
 | `rules/checks.md` | what the writer does before and after writing; results go in the reply, not in the text |
 | `rules/review-notes.md` | for notes that lay out known results: questions the reader must be able to answer |
+| `skills/cold-read/` | a first reader before the author: self-read, then a reader who did not write the passage |
 | `skills/changelog/` | record a change and bump the version |
 | `skills/references/` | citations through doiget |
 | `skills/figure-pages/` | an equation, tensor diagram or drawing as a figure page |
@@ -56,38 +57,50 @@ imitate) are written in that repository's `CLAUDE.md`, not here.
 - `review-notes.md`: this is a research paper, not a set of notes.
 ```
 
-## Updating
+## Branches: one per repository, `main` for what is common
 
-A repository stays at the commit it pinned and moves only when it chooses to.
-
-```sh
-git submodule update --remote .claude    # move to the newest main
-git diff --submodule=log .claude         # the commits this brings in
-git add .claude                          # then commit the new pin
-```
-
-Read the log before committing: a changed rule applies to everything written
-in that repository from then on.
-
-## Improving a rule or a skill
-
-`main` is protected: it changes only by pull request, merged by squash, and
-cannot be force-pushed or deleted. A change is made where the need for it
-appeared, inside the `.claude` of that repository, so it is tried on real work
-before it is proposed.
+Each repository works on its own branch of `.claude`, named after it
+(`<project>/rules`, or `<project>/<topic>` for a single change), and pins a
+commit of that branch. That is the normal state, not a temporary one: a rule
+or a skill is changed there, where the need for it appeared, and is tried on
+real work for as long as it takes.
 
 ```sh
-git -C .claude switch -c <project>/<topic>   # a branch named after the repository it comes from
+git -C .claude switch -c <project>/rules     # once; later: git -C .claude switch <project>/rules
 # edit inside .claude; Claude Code reads the working copy at once
-git -C .claude commit -am "fix: ..."
-git -C .claude push -u origin <project>/<topic>
-gh pr create -R pen-sotashimozono/.claude --head <project>/<topic>
+git -C .claude commit -am "feat: ..."
+git -C .claude push -u origin <project>/rules
+git add .claude                              # pin the pushed commit in the repository
 ```
 
-Until the pull request is merged, the repository may pin the pushed branch
-commit (`git add .claude`). Never pin a commit that is not on GitHub: nobody
-else can check it out. `git config push.recurseSubmodules check` makes git
-refuse such a push. After the merge, update as above.
+Never pin a commit that is not on GitHub: nobody else can check it out.
+`git config push.recurseSubmodules check` makes git refuse such a push.
+
+`main` holds only what is common to every repository. It is protected: it
+changes only by pull request, merged by squash, and cannot be force-pushed or
+deleted. When a change has proved itself in its repository and should hold
+everywhere, it is sent as a pull request:
+
+```sh
+gh pr create -R pen-sotashimozono/.claude --head <project>/rules
+```
+
+A change that has not yet been judged good by the author on real text is not
+sent. `main` changing often makes the style of every repository unstable.
+
+To take in what other repositories have made common, merge `main` into the
+repository's branch and read the log first, because a changed rule applies to
+everything written from then on:
+
+```sh
+git -C .claude fetch origin
+git -C .claude log --oneline HEAD..origin/main   # what this brings in
+git -C .claude merge origin/main
+git -C .claude push && git add .claude
+```
+
+A repository with no changes of its own may pin `main` directly
+(`git submodule update --remote .claude`).
 
 What to put in a pull request:
 

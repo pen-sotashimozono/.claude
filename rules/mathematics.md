@@ -9,7 +9,26 @@ unless its `CLAUDE.md` lists this file under "Rules not in force".
   equation, in a section that derives something, is a sign that the
   calculation has been replaced by a description of it.
 - Put a result first, then its derivation, in one continuous chain of
-  equalities where possible.
+  equalities where possible. A derivation opens with one sentence of goal and
+  the target equation, and says why that form can be reached, by the property
+  or the earlier result that guarantees it ("$M$ is real and antisymmetric, so
+  as shown in Appendix A.1.1 it can be brought to …").
+- Each step is a display, introduced by a short phrase that says what the step
+  is for or what it uses ("The rows of $iMv = -\epsilon v$ are", "With the
+  projector onto $P = p$,"). A bare imperative with no purpose, or two displays
+  with nothing between them, leaves the reader following a calculation without
+  knowing where it goes.
+- What can be said by an equation is said by an equation. A distinction of
+  cases (phases, limits, parities) is a `cases` display or a table, not a
+  paragraph. Numbers quoted for a formula stand in a display next to it, not
+  inside a sentence.
+- No `\simeq`, `\approx` or `\sim` in a displayed equation. Write what is
+  meant: an equality with its remainder ($= a + O(L^{-3})$,
+  $= a \, [1 + O(x^{-1})]$), a limit ($\lim_{r \to \infty} \dots = a$), or a
+  bound. Name the limit and what is held fixed. Intermediate steps stay exact
+  for as long as they can, and the remainder enters at the step that creates
+  it. A leading-order statement that is quoted or only observed numerically is
+  marked as such.
 - A revision does not remove displayed steps. If the prose grows and the number
   of displays falls, the revision went the wrong way.
 - The amount of prose is measured against the sections the author has

@@ -10,7 +10,8 @@ has been read twice by others: once by the writer as a reader, once by a
 reader with no knowledge of how it was written.
 
 One passage at a time: a subsubsection, a proof, a derivation. A whole section
-in one read returns a list too long to act on.
+in one read returns a list too long to act on. Several passages are read by
+several readers at once, one per file, each with its own brief.
 
 ## 1. Read it yourself first
 
@@ -27,7 +28,9 @@ Look for the things the writer cannot feel while writing:
   first;
 - a sentence written about the wrong object (a claim that was true of an
   earlier version);
-- a symbol whose definition was deleted in an edit, or arrives after its use.
+- a symbol whose definition was deleted in an edit, or arrives after its use;
+- after a shortening, a display that ends with a period and is followed by
+  "which …", or with a comma and is followed by a new sentence.
 
 ## 2. The cold reader
 
@@ -53,7 +56,8 @@ Report briefly, most important first:
 1. Every place where, reading in order, you did not know why a step was being
    done or where it was going. Quote it.
 2. Every step you could not verify within about a minute from what came
-   before, or that is wrong. Check the algebra of each displayed equation.
+   before, or that is wrong. Check the algebra of each displayed equation;
+   you may run small numerical checks (<name the formulas worth testing>).
 3. Symbols used before they are explained, or never explained.
 4. Sentences that say nothing, repeat an equation in words, or talk about the
    document rather than the subject; and places where a needed sentence is
