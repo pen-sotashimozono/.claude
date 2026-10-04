@@ -7,11 +7,11 @@ as a git submodule at `.claude`.
 
 | Path | Contents |
 |---|---|
-| `rules/prose.md` | sentences and paragraphs; nothing used before it is declared |
-| `rules/mathematics.md` | calculations, statements, proofs, numbering |
+| `rules/prose.md` | sentences and paragraphs; no sentence about the text itself |
+| `rules/mathematics.md` | the text is the calculation; prose measured against approved sections |
 | `rules/structure.md` | draft marking, c.f. references, floats |
-| `rules/accuracy.md` | the basis of each claim, citations, checks before and after writing |
-| `rules/review-notes.md` | for notes that lay out known results: motivation, conditions and their failure, mapping to references |
+| `rules/checks.md` | what the writer does before and after writing; results go in the reply, not in the text |
+| `rules/review-notes.md` | for notes that lay out known results: questions the reader must be able to answer |
 | `skills/changelog/` | record a change and bump the version |
 | `skills/references/` | citations through doiget |
 | `skills/figure-pages/` | an equation, tensor diagram or drawing as a figure page |
@@ -29,6 +29,17 @@ git submodule update --init .claude      # in a clone made without --recurse-sub
 
 Everything in `.claude` is shared. What belongs to one repository only goes in
 its `CLAUDE.md`; `.claude/settings.local.json` stays local and untracked.
+
+## How the rules are meant
+
+A rule restricts what is written. It is never met by adding a sentence: rules
+phrased as "say X" were tried and produced text in which every result was
+followed by a sentence about its status, its use and its limits, with twice
+the prose and fewer equations than the sections they were modelled on. The
+rules are therefore of three kinds. `prose.md`, `mathematics.md` and
+`structure.md` say what the text looks like. `checks.md` says what the writer
+does, and its results are reported to the author in the reply. `review-notes.md`
+lists questions the text must answer, by its content and order.
 
 ## Which rules are in force
 

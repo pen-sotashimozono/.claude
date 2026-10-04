@@ -6,14 +6,18 @@ background. In force in every repository unless its `CLAUDE.md` lists this
 file under "Rules not in force"; a research paper would normally switch it
 off.
 
-- A section opens with what is missing at that point and what the section
-  supplies for it, in terms of the goal of the document.
-- Before a theorem, say why it matters and where it is used.
-- A condition comes with its meaning and with the case in which it fails. "If
-  $U$ is invertible" is followed by what invertibility says about the objects
-  and by when it does not hold.
-- After a result, say what it is used for later and what it does not give.
-- When a result is in the literature, say how the notation of the reference
-  maps to the notation here, and whether the reference proves it, states it,
-  or attributes it to someone else.
-- A general statement is followed by its smallest concrete case.
+These are questions the reader must be able to answer from the text. Each is
+answered by the choice and order of the material, or by a clause inside a
+sentence that is there anyway. If an answer needs a sentence of its own, it
+gets one sentence, and only where the reader would otherwise be stuck.
+
+- Why is this section here? The opening sentence states the problem in terms
+  of the objects of the document ("Whether the exponential is normalized is
+  not obvious"), not in terms of the document ("This section shows …").
+- Why does this theorem matter? One sentence before it names where it is used.
+- What does this condition mean, and when does it fail? Stated once, at the
+  condition, with the case in which it fails.
+- How does this relate to the reference? Where notation differs, the mapping
+  is given in the c.f. line, not in the running text.
+- What does this look like in the smallest case? At most one explicit case per
+  subsection, chosen because the general formula is hard to read without it.
