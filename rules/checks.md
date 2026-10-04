@@ -20,13 +20,23 @@ never into the document as sentences. In force in every repository unless its
 - Verify every formula before writing it, numerically where possible,
   including the edge cases of its parameters. No "(Checked numerically …)"
   notes in the text.
+- Know the basis of every remainder: derived, or checked numerically by
+  watching the error scale with the parameter. The reply says which, and names
+  the remainders that are neither.
+- After shortening a passage, read it again in order. Shortening cuts
+  connectives: a display whose final punctuation no longer fits the sentence
+  that follows, a symbol whose definition went with a deleted sentence, a
+  conclusion that is no longer drawn.
 - A number in a table or in the text comes from a script committed in the
   repository, with fixed seed and sample size, named in a source comment where
   the number appears. A number carried over from an earlier version is
   recomputed, or named as carried over in the reply.
-- After a section is written, have it read once by a reviewer who did not
-  write it, for the mathematics and for the citations. Fix what is found, and
-  report it in the reply.
+- After a section is written or rewritten, have it read once by a reviewer who
+  did not write it (the `cold-read` skill), before the author sees it. The
+  reader follows the text, audits it against every rule in force, and checks
+  each citation against its TeX source or its PDF. Fix
+  what is found, and report in the reply what was found, what was changed and
+  what was left.
 - Compare the result with the approved sections before showing it: words of
   prose per displayed equation, number of displayed steps against the previous
   version, and sentences about the text itself (there should be none).
