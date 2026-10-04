@@ -32,7 +32,9 @@ never into the document as sentences. In force in every repository unless its
   the number appears. A number carried over from an earlier version is
   recomputed, or named as carried over in the reply.
 - After a section is written or rewritten, have it read once by a reviewer who
-  did not write it (the `cold-read` skill), before the author sees it. Fix
+  did not write it (the `cold-read` skill), before the author sees it. The
+  reader follows the text, audits it against every rule in force, and checks
+  each citation against `papers/src/` or the PDF. Fix
   what is found, and report in the reply what was found, what was changed and
   what was left.
 - Compare the result with the approved sections before showing it: words of

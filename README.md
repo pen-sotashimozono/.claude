@@ -12,7 +12,7 @@ as a git submodule at `.claude`.
 | `rules/structure.md` | draft marking, c.f. references, floats |
 | `rules/checks.md` | what the writer does before and after writing; results go in the reply, not in the text |
 | `rules/review-notes.md` | for notes that lay out known results: questions the reader must be able to answer |
-| `skills/cold-read/` | a first reader before the author: self-read, then a reader who did not write the passage |
+| `skills/cold-read/` | a first reader before the author: self-read, then a reader who did not write the passage, who also audits every rule in force and checks each citation against its source |
 | `skills/changelog/` | record a change and bump the version |
 | `skills/references/` | citations through doiget |
 | `skills/figure-pages/` | an equation, tensor diagram or drawing as a figure page |

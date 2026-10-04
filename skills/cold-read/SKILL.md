@@ -1,6 +1,6 @@
 ---
 name: cold-read
-description: Have a passage of the notes read by a reader who did not write it, before showing it to the author. Use after writing or rewriting any section, subsection or proof - the author reads only what has passed this. Finds where a reader loses the thread, steps that do not follow, and goals that the text announces but does not reach.
+description: Have a passage of the notes read by a reader who did not write it, before showing it to the author. The reader also audits it against every rule in force and checks each citation against its PDF or source. Use after writing or rewriting any section, subsection or proof - the author reads only what has passed this. Finds where a reader loses the thread, steps that do not follow, and goals that the text announces but does not reach.
 ---
 
 # Cold read: a first reader before the author
@@ -37,8 +37,22 @@ Look for the things the writer cannot feel while writing:
 Start a fresh agent (general-purpose; it must not inherit this conversation).
 Give it only: the path of the passage and where it starts and ends, the
 passages it cites and may look up, the approved passage it should read like,
-and what the author has said the text must do. Do not tell it what you think
-is wrong, and do not give it your own summary of the passage.
+the rules in force, and what the author has said the text must do. Do not tell
+it what you think is wrong, and do not give it your own summary of the
+passage.
+
+The reader audits the passage against **every rule in force**, not a
+selection. The rules in force are all files in `.claude/rules/`, minus those
+the repository's `CLAUDE.md` lists under "Rules not in force", plus its "Rules
+of this repository only". Give the reader the paths and have it read them
+itself. Do not paraphrase the rules into the brief, because a paraphrase drops
+the ones the writer already tends to forget.
+
+The reader also checks **every citation of the passage against its source**:
+`papers/src/<bibkey>.tex` or `.txt` first, `papers/<bibkey>.pdf` where the
+text extraction is unclear or the source is a scan. For each `\cite` it finds
+the section or equation the text names and confirms that it says what the
+passage attributes to it, in the stated notation.
 
 Brief, to be filled in:
 
@@ -64,6 +78,17 @@ Report briefly, most important first:
    missing.
 5. Whether the passage as a whole does what its opening says it will do, and
    whether it reads like the approved passage. Be specific; do not be polite.
+6. Rules. Read CLAUDE.md (sections "Rules", "Rules not in force", "Rules of
+   this repository only") and every file of .claude/rules/ that is in force.
+   Go through the rules one by one and list every violation in the passage,
+   quoted, with the rule it breaks. Say explicitly which rule files you
+   checked and found no violation of.
+7. Citations. For every \cite in the passage, open papers/src/<bibkey>.tex or
+   .txt, and papers/<bibkey>.pdf where that is unclear, and find the section
+   or equation the passage names. Report per citation: confirmed (with the
+   location you found), wrong or imprecise (what the source actually says), or
+   could not be checked (why). A source that is missing or unreadable is
+   reported, not passed.
 Do not rewrite the passage. Do not comment on other parts of the file.
 ```
 
@@ -75,6 +100,11 @@ another, which the writer does not see.
 
 - A wrong step, a missing link between the stated goal and the method, a
   conclusion asserted without its last step: fix all of these.
+- A rule violation is fixed, or the rule is wrong for this case and that goes
+  to the author as a question. It is not left standing silently.
+- A citation that is wrong or imprecise is corrected from the source. One
+  that could not be checked supports an attribution only, and is named in the
+  report to the author.
 - "Did not know why": add the reason at that point, as one sentence about the
   subject, or reorder so that the reason comes first.
 - A request for more explanation is weighed, not obeyed. A cold reader asks
@@ -94,7 +124,8 @@ to look.
 
 ## What this does not replace
 
-A cold read is about following the text. It does not check citations against
-their sources, and its algebra check is a reader's, not a referee's. Numerical
-verification of new formulas and the check of citations are separate
-(`rules/checks.md`).
+Its algebra check is a reader's, not a referee's. Numerical verification of
+new formulas, and of the order of every remainder, stays with the writer
+(`rules/checks.md`). The citation check confirms that a cited passage exists
+and says what is claimed; whether a better or earlier source should be cited
+instead is the writer's question.
