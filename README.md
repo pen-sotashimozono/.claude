@@ -1,4 +1,4 @@
-# claude-tex
+# .claude
 
 The `.claude/` directory shared by the LaTeX repositories made from
 [template.tex](https://github.com/pen-sotashimozono/template.tex): the rules
@@ -19,7 +19,7 @@ The skills name scripts under `.github/` of the repository they run in
 ## Using it
 
 ```sh
-git submodule add https://github.com/pen-sotashimozono/claude-tex .claude
+git submodule add https://github.com/pen-sotashimozono/.claude .claude
 git submodule update --init .claude      # in a clone made without --recurse-submodules
 git submodule update --remote .claude    # move to the newest main; then git add .claude
 ```
