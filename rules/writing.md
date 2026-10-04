@@ -30,7 +30,7 @@ apply them to every passage that is added or rewritten.
   is numbered (`equation`, not `equation*`), and later text refers to a step by
   its equation number. Equation numbers are (section.subsection.number).
 - Properties of the Pfaffian that a proof uses are stated in the Pfaffian
-  remark (App. C.1), not re-derived in place.
+  remark of the free-fermion appendix, not re-derived in place.
 - Notation must match earlier sections. Kets are tensor products; sums are
   written with their ranges.
 - No "(Checked numerically …)" notes in the text unless the author asks. Verify
