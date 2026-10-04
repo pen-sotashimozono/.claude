@@ -7,7 +7,11 @@ as a git submodule at `.claude`.
 
 | Path | Contents |
 |---|---|
-| `rules/writing.md` | how the text of `notes/` is written (sentences, mathematics, structure) |
+| `rules/prose.md` | sentences and paragraphs; nothing used before it is declared |
+| `rules/mathematics.md` | calculations, statements, proofs, numbering |
+| `rules/structure.md` | draft marking, c.f. references, floats |
+| `rules/accuracy.md` | the basis of each claim, citations, checks before and after writing |
+| `rules/review-notes.md` | for notes that lay out known results: motivation, conditions and their failure, mapping to references |
 | `skills/changelog/` | record a change and bump the version |
 | `skills/references/` | citations through doiget |
 | `skills/figure-pages/` | an equation, tensor diagram or drawing as a figure page |
@@ -25,6 +29,21 @@ git submodule update --init .claude      # in a clone made without --recurse-sub
 
 Everything in `.claude` is shared. What belongs to one repository only goes in
 its `CLAUDE.md`; `.claude/settings.local.json` stays local and untracked.
+
+## Which rules are in force
+
+Every file in `rules/` is in force in every repository by default. The files
+are split by subject so that a repository can switch one off: it names the
+file in its `CLAUDE.md`, in a section headed "Rules not in force", with one
+line on why. A file not named there applies. Rules that hold for one
+repository only (its own notation, its own running example, which sections to
+imitate) are written in that repository's `CLAUDE.md`, not here.
+
+```markdown
+## Rules not in force
+
+- `review-notes.md`: this is a research paper, not a set of notes.
+```
 
 ## Updating
 
