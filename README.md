@@ -10,10 +10,12 @@ as a git submodule at `.claude`.
 | `rules/prose.md` | sentences and paragraphs; no sentence about the text itself |
 | `rules/mathematics.md` | the text is the calculation; prose measured against approved sections |
 | `rules/structure.md` | draft marking, c.f. references, floats |
+| `rules/sectioning.md` | where a document is divided and what the headings say, measured against the tables of contents of published reviews; dividing is not editing |
 | `rules/citing.md` | how the text points at a figure, a table or a source: plain sentences, two forms of mention used side by side, no template |
 | `rules/checks.md` | what the writer does before and after writing; results go in the reply, not in the text |
 | `rules/review-notes.md` | for notes that lay out known results: questions the reader must be able to answer |
 | `skills/cold-read/` | a first reader before the author: self-read, then a reader who did not write the passage, who also audits every rule in force and checks each citation against its source |
+| `skills/sectioning/` | the table of contents before the text: list the units, give each one home, compare with published heading trees, test the draft, show the author before moving anything |
 | `skills/changelog/` | record a change and bump the version |
 | `skills/references/` | citations through doiget |
 | `skills/figure-pages/` | an equation, tensor diagram or drawing as a figure page |
