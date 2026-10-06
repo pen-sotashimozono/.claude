@@ -15,3 +15,7 @@ Where things go in the document. In force in every repository unless its
   `Appendix~\ref{…}`), not as "Sec." or "App.".
 - Tables and figures are floats with captions, full text width, referred to by
   `Table~\ref` / `Fig.~\ref`. Captions are short.
+- Diagrams that make one statement together are one figure, or cells of the
+  table that summarises them. A subsection does not get a figure of its own
+  because its neighbours have one. How a float is mentioned in the text is in
+  `citing.md`.
