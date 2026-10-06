@@ -99,8 +99,8 @@ Wait for the answer. Titles and divisions are the author's decision.
 
 After approval: move the text, keep every `\label`, and rebuild. A label
 that named a removed heading is kept on the unit that replaced it, so that
-references elsewhere do not break. Then run the cold read on the passages
-whose text changed, not only on the headings.
+references elsewhere do not break. Then read the passages whose text changed in
+order, against the rules in force, not only the headings.
 
 ## What this does not do
 

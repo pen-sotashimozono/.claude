@@ -25,7 +25,10 @@ sentence. When a passage breaks a rule, rewrite or delete it.
   second definition. Do not follow an equation with a "Here … is …, … is …"
   sentence that lists its symbols.
 - Do not introduce a symbol that is used only once. Write the expression.
-- One symbol means one thing within a section, and one thing has one symbol
-  and one name throughout the document.
+- The same object is written with the same symbol and called by the same
+  name wherever it appears in the document. This is the rule, and it is about
+  objects: it does not forbid a letter from standing for a different object
+  in a section where the first one does not occur. Within one passage a
+  letter stands for one object.
 - After writing, read each sentence and ask what the reader loses if it is
   deleted. If nothing, delete it.
