@@ -46,7 +46,16 @@ selection. The rules in force are all files in `.claude/rules/`, minus those
 the repository's `CLAUDE.md` lists under "Rules not in force", plus its "Rules
 of this repository only". Give the reader the paths and have it read them
 itself. Do not paraphrase the rules into the brief, because a paraphrase drops
-the ones the writer already tends to forget.
+the ones the writer already tends to forget. Do not narrow the brief either. A
+line such as "mathematics only" or "no comments on style" removes the rules
+from the read, and the reader then reports every equation correct in a passage
+that breaks half of them.
+
+The reader runs **every script the passage takes numbers from** and compares
+each number in the tables and in the sentences with what the script prints. A
+number the script does not print is reported as such, whether or not it is
+right. A script too slow to run is named, and its numbers are reported as not
+verified.
 
 The reader also checks **every citation of the passage against its source**,
 which is the TeX source `papers/src/<bibkey>.tex` or the PDF
@@ -92,6 +101,12 @@ Report briefly, most important first:
    location you found), wrong or imprecise (what the source actually says), or
    could not be checked (why). A source that is missing or unreadable is
    reported, not passed.
+8. Numbers. Run each script named in the source comments of the passage
+   (<how to run them; which are too slow to run>). For every number in a
+   table or a sentence, say whether the output contains it, to the digits
+   quoted. List the numbers that no committed script prints.
+Judge by the standard of the approved passage, not a stricter one. Where a
+rule is broken throughout, say so once and give the worst cases.
 Do not rewrite the passage. Do not comment on other parts of the file.
 ```
 
@@ -115,8 +130,16 @@ another, which the writer does not see.
   stopping point, and nothing that only makes the passage longer.
 - Rebuild and look at the rendered pages.
 
+- A number or a result that exists only in the reader's own script does not
+  go into the text. Commit the script, run it yourself, and quote its output,
+  or state the finding without the number.
+
 If the fixes changed the structure of the passage (a new step, a different
-order), run step 2 again with a new agent. If they were local, do not.
+order), run step 2 again with a new agent. If they were local, do not run it
+again, but check each corrected statement of fact against its script or its
+source yourself (`rules/checks.md`). In a second read of a passage that was
+corrected, name the corrected lines to the reader as lines to check, without
+saying what was wrong with them.
 
 ## 4. Report to the author
 
