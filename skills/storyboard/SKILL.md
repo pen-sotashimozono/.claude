@@ -18,7 +18,7 @@ One page per slide, three sections:
 slides/board/
 ├── index.html   generated: the index and every page, switched by #anchor
 ├── pages/       the source, one NN-<slug>.html per slide  <- edit here only
-└── utils/       build.sh, serve.py, copy-file, style.css, board.js, assets.js (generated)
+└── utils/       build.sh, deck.py, cite.py, serve.py, copy-file, style.css, board.js, assets.js (generated)
 ```
 
 ## Writing a page
@@ -39,6 +39,35 @@ Start from `page-template.html` in this skill: copy it to
   second adds to the first, and `→ slide N` where the slide hands over.
 - **Page flags** use `<p class="desc"><span class="warn">要確認</span> …</p>`
   under the mock, e.g. a label on the deck that is wrong.
+
+## A slide that is in the deck: the mock is copied, not written
+
+The deck (`slides/main.pptx`) is the talk. Once a slide exists there, its page
+must show that slide and nothing else, so the Slide section holds only
+
+```html
+<!-- deck:9 -->
+<!-- /deck -->
+```
+
+and `utils/deck.py`, which build.sh runs first, rewrites what is between the
+two comments from slide 9: a deck-exact mock (`<div class="slide deck">`, every
+text, box and picture at its place) and the placement table. Do not edit
+between the comments. Write the rest by hand as before: the `要確認` flags
+under the block, a line of sources (`<p class="desc sources">` with the
+`<cite>` of each claim the slide makes), Relations and References. A small
+reference line on the slide becomes the `<cite>` of that work with the page,
+note and quote of the first hand-written `<cite>` of the same key on the page,
+so write that one in full.
+
+A pasted figure is recognized by the size of its drawing, among every version
+git has of the figure pages, so an old paste still links its page; the mock
+shows the page as it is now. A picture that is no figure page (a screenshot) is
+a dashed box. `python3 slides/board/utils/deck.py --check` says which pages are
+behind the deck.
+
+A page for a slide that is only planned keeps a hand-drawn mock, as below, until
+the slide is in the deck; then replace the mock by the two comments.
 
 ## Citations: key and page only, resolved from references.bib
 
