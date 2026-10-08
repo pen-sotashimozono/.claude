@@ -10,7 +10,7 @@ release's body. It is the only place the *reason* survives as prose; the commit
 log carries what changed, not why.
 
 ```sh
-latexmk main.tex && latexmk notes.tex
+latexmk notes.tex
 ./.github/scripts/bump.sh --affected patch "One line on what changed and why."
 ```
 

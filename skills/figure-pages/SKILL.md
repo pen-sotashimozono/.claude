@@ -38,13 +38,22 @@ one page of each kind; delete it once a real topic exists.
 
 - **Equation** (`.tex`): `\documentclass[border=4pt]{standalone}`,
   `\input{preamble}`, one `$\displaystyle … $`.
-- **Tensor diagram** (`.tex`): add `\usepackage{tikz-tensors}` and use its styles —
-  `cont` wavy legs for continuous arguments (**r**), `disc` plain lines for
-  finite indices, `fn`/`fnwide`/`fntall` circles and boxes for functions,
-  `coef`/`coefwide`/`coeftall` squares for arrays, `frame` for a group that
-  contracts to one array, `\tnswap` to exchange two fermion legs. Conventions
-  are in the header of `tikz-tensors.sty` and its README. Put the coefficients on top of the basis
-  functions, so the basis visibly sits between the numbers and space.
+- **Tensor diagram** (`.tex`): add `\usepackage{tikz-tensors}` and
+  `\input{notation}` — the project's notation, `.github/tools/figures/notation.tex`,
+  which names the types for what they mean (`fn`/`fnwide`/`fntall` a function of
+  position, `coef`/`coefwide`/`coeftall` an array, `op`, `canl`/`canr`/`center`)
+  and the edge types (`cont` a wavy leg for a continuous argument, `disc` a plain
+  line for a finite index). A figure is written in the package's steps and holds
+  no length and no coordinate: place (`\tnstack`, `\tnlayer`), connect
+  (`\tnconnect`), open or join (`\tnopen`, `\tnopenswap`, `\tnjoin`), label
+  (`\tnmid`, `\tnput`, `\tnframe`), with `\tneq`, `\tnapprox`, `\tnplus`,
+  `\tnminus` between blocks. The reference is `tikz-tensors/docs/reference/`
+  and every example in `tikz-tensors/examples/` has its code beside its picture;
+  start from the one nearest to the figure wanted. Put the coefficients on top
+  of the basis functions, so the basis visibly sits between the numbers and
+  space. A shape or command the notation lacks is added to `notation.tex`; a
+  fault of the package is fixed in the submodule (`tikz-tensors.sh dev <topic>`)
+  and sent to tikz-tensors as a pull request.
 - **Picture** (`.tex`): plain TikZ with the theme's colours (from tikz-tensors);
   parts a project reuses go in a `.sty` next to build.sh (found on TEXINPUTS).
   Labels are LaTeX math, so they match the equations.

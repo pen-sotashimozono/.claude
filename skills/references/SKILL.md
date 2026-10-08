@@ -33,7 +33,14 @@ always cites. Then:
 ```
 
 Both are idempotent and read `references.bib`, so neither needs a ref passed by
-hand. `refs_sync.sh` fetches into the store when needed and copies out; it
+hand. `refs_sync.sh` also gives every entry with a local PDF the field
+`file = {papers/<bibkey>.pdf}` (through `.github/scripts/bib_files.py`, checked
+in CI), so the bibliography says where each original is. Do not type it.
+
+A PDF doiget cannot fetch (no open-access copy; downloaded through a licence)
+is placed by hand at `papers/<bibkey>.pdf`, after checking its first page
+against the entry's title and authors; then run both scripts. The
+repository is private, which is what makes keeping licensed PDFs here fine. `refs_sync.sh` fetches into the store when needed and copies out; it
 reports entries with no open-access PDF, which is fine — cite them and note the
 absence.
 

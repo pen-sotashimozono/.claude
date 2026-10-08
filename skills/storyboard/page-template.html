@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="utf-8">
+<!-- paths below are relative to slides/board/, where build.sh pastes this page; the base makes them resolve there when this file is opened on its own -->
+<base href="../">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>NN · Slide title as on the deck</title>
+<meta name="description" content="One line: what this slide establishes (shown on the index card).">
+<meta name="thumb" content="../../figures/assets/TOPIC/PAGE.svg">
+<link rel="stylesheet" href="utils/style.css">
+<script src="utils/assets.js"></script>
+<script src="utils/board.js"></script>
+</head>
+<body>
+<h1>NN · Slide title as on the deck</h1>
+<p class="subtitle">One line: what this slide establishes.</p>
+
+<section class="section">
+<h2>Slide</h2>
+<div class="slide"><p class="title">Slide title</p><p class="message">The one-sentence message, in English</p>
+<div class="grid" style="grid-template-columns:1fr 1fr 1fr">
+  <div class="col"><span class="label">1 · FIRST</span>
+    <a class="fig" href="../../figures/assets/TOPIC/00-figure.svg" title="TOPIC/00-figure"><img src="../../figures/assets/TOPIC/00-figure.svg" alt="TOPIC/00-figure"></a>
+    <a class="eq" href="../../figures/assets/TOPIC/01-equation.svg" title="TOPIC/01-equation"><img src="../../figures/assets/TOPIC/01-equation.svg" alt="TOPIC/01-equation"></a><cite data-key="bibkey" data-page="N" data-note="what this equation takes from it"></cite>
+  </div>
+  <div class="col"><span class="label">2 · SECOND</span>
+    <span class="note">A line of slide text, as it will appear.</span>
+  </div>
+  <div class="col"><span class="label">3 · THIRD</span></div>
+</div>
+</div>
+</section>
+
+<section class="section">
+<h2>Relations</h2>
+<table class="rel">
+<thead><tr><th>From</th><th>To</th><th>What connects them</th></tr></thead>
+<tbody>
+<tr><td><figure><a href="../../figures/assets/TOPIC/00-figure.svg"><img src="../../figures/assets/TOPIC/00-figure.svg" alt="TOPIC/00-figure"></a><span class="path">TOPIC/00-figure</span></figure></td>
+    <td><figure><a href="../../figures/assets/TOPIC/01-equation.svg"><img src="../../figures/assets/TOPIC/01-equation.svg" alt="TOPIC/01-equation"></a><span class="path">TOPIC/01-equation</span></figure></td>
+    <td>How the second follows from the first; "→ slide NN+1" where it hands over. <cite data-key="bibkey" data-page="N" data-note="the claim"></cite></td></tr>
+</tbody>
+</table>
+</section>
+
+<section class="section">
+<h2>References</h2>
+<ol class="bibliography auto">
+<!-- generated from the <cite> above; hand-write only books and web pages outside the bib: -->
+<li><span class="kind">web</span>Site — page.<span class="bib-links"><a href="https://example.org/">web</a></span><span class="bib-use">What it is used for.</span></li>
+</ol>
+</section>
+</body>
+</html>
