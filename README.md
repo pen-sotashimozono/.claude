@@ -14,6 +14,7 @@ as a git submodule at `.claude`.
 | `rules/review-notes.md` | for notes that lay out known results: questions the reader must be able to answer |
 | `skills/cold-read/` | a first reader before the author: self-read, then a reader who did not write the passage, who also audits every rule in force and checks each citation against its source |
 | `skills/changelog/` | record a change and bump the version |
+| `skills/release-log/` | bring a document's released PDFs and diffs to this machine, with a page of what changed |
 | `skills/references/` | citations through doiget |
 | `skills/figure-pages/` | an equation, tensor diagram or drawing as a figure page |
 | `skills/paper-figures/` | a cited paper's own figure, extracted as SVG |
