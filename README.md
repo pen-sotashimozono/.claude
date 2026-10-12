@@ -16,6 +16,7 @@ as a git submodule at `.claude`.
 | `rules/review-notes.md` | for notes that lay out known results: questions the reader must be able to answer |
 | `skills/sectioning/` | the table of contents before the text: list the units, give each one home, compare with published heading trees, test the draft, show the author before moving anything |
 | `skills/changelog/` | record a change and bump the version |
+| `skills/release-log/` | bring a document's released PDFs and diffs to this machine, with a page of what changed |
 | `skills/references/` | citations through doiget |
 | `skills/figure-pages/` | an equation, tensor diagram or drawing as a figure page |
 | `skills/paper-figures/` | a cited paper's own figure, extracted as SVG |
