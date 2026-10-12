@@ -11,11 +11,12 @@ description: Make or change a figure page - a standalone equation, a TikZ tensor
 `figures/` holds only what a writer looks at: pages (`src/`), what they build
 into (`generated/`, never edited by hand), figures made one by one outside the
 page build (`assets/`, the originals), and other papers' figures (`papers/`,
-the `paper-figures` skill). The shared files a page uses — `preamble.tex` and the
+the `paper-figures` skill). The shared files a page uses — `preamble.tex`, `notation.tex` (what the
+shapes of a tensor diagram stand for in this project) and the
 `tikz-tensors/` ([pen-sotashimozono/tikz-tensors](https://github.com/pen-sotashimozono/tikz-tensors), a git submodule whose main is the canonical release: `tikz-tensors.sh status` / `pin latest` / `dev <topic>` to change the format in place, as a proposal on a branch) — and the
 build's `latexmkrc` live in `.github/tools/figures/`; build.sh puts that
-directory on TEXINPUTS, so a page just writes `\input{preamble}` and
-`\usepackage{tikz-tensors}` and never names it.
+directory on TEXINPUTS, so a page just writes `\input{preamble}`,
+`\usepackage{tikz-tensors}` and `\input{notation}` and never names it.
 
 Topics are folders in reading order (`01-model`, `02-method`, …); pages are
 numbered inside them (`00-…`, `01-…`, `01b-…`). `figures/src/example/` shows
@@ -39,13 +40,24 @@ one page of each kind; delete it once a real topic exists.
 
 - **Equation** (`.tex`): `\documentclass[border=4pt]{standalone}`,
   `\input{preamble}`, one `$\displaystyle … $`.
-- **Tensor diagram** (`.tex`): add `\usepackage{tikz-tensors}` and use its styles —
-  `cont` wavy legs for continuous arguments (**r**), `disc` plain lines for
-  finite indices, `fn`/`fnwide`/`fntall` circles and boxes for functions,
-  `coef`/`coefwide`/`coeftall` squares for arrays, `frame` for a group that
-  contracts to one array, `\tnswap` to exchange two fermion legs. Conventions
-  are in the header of `tikz-tensors.sty` and its README. Put the coefficients on top of the basis
-  functions, so the basis visibly sits between the numbers and space.
+- **Tensor diagram** (`.tex`): add `\usepackage{tikz-tensors}` and
+  `\input{notation}`. The package draws shapes, lines and layouts and says
+  nothing about what they mean; the meaning is the project's, in
+  `notation.tex` next to build.sh. Read that file before drawing: it names the
+  types (`fn` a function of position on `cont` wavy legs, `coef` an array,
+  `op` an operator, `canl`/`canr`/`center` the canonical form, …), and a
+  project changes it to its own. A meaning it lacks is added there once, never
+  styled by hand in a page.
+  Draw on a layout, not with coordinates: `\tnstack{X}{<sites>}{<layers>}`,
+  `\tnlayer{X}{<layer>}{<type>/<label>, …}`, `\tnconnect{X}`,
+  `\tnopen[label=…]{down}{X}` for the open indices, `\tnmid` / `\tnput` for
+  labels, `\tneq` / `\tnapprox` between blocks, `\tnframe` around a group
+  that contracts to one array, `\tnopenswap` to exchange two fermion legs.
+  The commands are in the submodule's `docs/reference/commands.md`, and
+  `examples/` there has a page for most diagrams (an MPS, a canonical form, an
+  effective Hamiltonian, a tree, a PEPS) to start from. Put the coefficients
+  on top of the basis functions, so the basis visibly sits between the numbers
+  and space.
 - **Picture** (`.tex`): plain TikZ with the theme's colours (from tikz-tensors);
   parts a project reuses go in a `.sty` next to build.sh (found on TEXINPUTS).
   Labels are LaTeX math, so they match the equations.
