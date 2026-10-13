@@ -15,7 +15,7 @@ as a git submodule at `.claude`.
 | `rules/checks.md` | what the writer does before and after writing; results go in the reply, not in the text |
 | `rules/viewing.md` | the author reads in a viewer only (PDF, HTML page, pptx): changes are shown rendered, never as source or diff text |
 | `rules/review-notes.md` | for notes that lay out known results: questions the reader must be able to answer |
-| `skills/cold-read/` | a first reader before the author: self-read, then a reader who did not write the passage, who also audits every rule in force and checks each citation against its source |
+| `skills/cold-read/` | a first reader before the author: self-read, then a reader who did not write the passage, who also audits every rule in force and checks each claim against what it rests on |
 | `skills/sectioning/` | the table of contents before the text: list the units, give each one home, compare with published heading trees, test the draft, show the author before moving anything |
 | `skills/changelog/` | record a change and bump the version |
 | `skills/release-log/` | bring a document's released PDFs and diffs to this machine, with a page of what changed |

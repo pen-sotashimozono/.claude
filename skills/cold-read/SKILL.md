@@ -1,6 +1,6 @@
 ---
 name: cold-read
-description: Have a passage of the notes read by a reader who did not write it, before showing it to the author. The reader also audits it against every rule in force and checks each citation against its PDF or TeX source. Use after writing or rewriting any section, subsection or proof - the author reads only what has passed this. Finds where a reader loses the thread, steps that do not follow, and goals that the text announces but does not reach.
+description: Have a passage of a document read by a reader who did not write it, before showing it to the author. The reader follows the passage in order, audits it against every rule in force, and checks each claim against what it rests on - a derived step against the steps before it, a citation against its source, a number against what produced it. Use after writing or rewriting a section, subsection or proof, where the rules in force ask for a reader before the author. Finds where a reader loses the thread, steps that do not follow, and goals that the text announces but does not reach.
 ---
 
 # Cold read: a first reader before the author
@@ -12,6 +12,12 @@ reader with no knowledge of how it was written.
 One passage at a time: a subsubsection, a proof, a derivation. A whole section
 in one read returns a list too long to act on. Several passages are read by
 several readers at once, one per file, each with its own brief.
+
+What differs from one repository to the next is not written here: who the
+intended reader is, which passage the author has approved, and how a number
+of the document is reproduced. The brief takes these from the repository's
+`CLAUDE.md`. `rules/checks.md` says when a passage is sent to a reader, and a
+repository that has switched that rule off does not send one.
 
 ## 1. Read it yourself first
 
@@ -36,10 +42,10 @@ Look for the things the writer cannot feel while writing:
 
 Start a fresh agent (general-purpose; it must not inherit this conversation).
 Give it only: the path of the passage and where it starts and ends, the
-passages it cites and may look up, the approved passage it should read like,
-the rules in force, and what the author has said the text must do. Do not tell
-it what you think is wrong, and do not give it your own summary of the
-passage.
+passages it cites and may look up, the approved passage it should read like
+if the repository names one, the rules in force, and what the author has said
+the text must do. Do not tell it what you think is wrong, and do not give it
+your own summary of the passage.
 
 The reader audits the passage against **every rule in force**, not a
 selection. The rules in force are all files in `.claude/rules/`, minus those
@@ -51,19 +57,28 @@ line such as "mathematics only" or "no comments on style" removes the rules
 from the read, and the reader then reports every equation correct in a passage
 that breaks half of them.
 
-The reader runs **every script the passage takes numbers from** and compares
-each number in the tables and in the sentences with what the script prints. A
-number the script does not print is reported as such, whether or not it is
-right. A script too slow to run is named, and its numbers are reported as not
-verified.
+The reader also checks **every claim of the passage against what it rests
+on**. A claim is derived in the text, taken from a reference, or observed
+numerically (`rules/checks.md`), and each kind is checked where its basis
+lies.
 
-The reader also checks **every citation of the passage against its source**,
-which is the TeX source `papers/src/<bibkey>.tex` or the PDF
-`papers/<bibkey>.pdf`. A `papers/src/<bibkey>.txt` is an extraction of the PDF
-that loses symbols: it serves to find the place, and the PDF page is then
-read. For each `\cite` the reader finds
-the section or equation the text names and confirms that it says what the
-passage attributes to it, in the stated notation.
+- Derived: the reader redoes each displayed step from the ones before it, and
+  may test a formula numerically.
+- Taken from a reference: the reader opens the source, which is the TeX source
+  `papers/src/<bibkey>.tex` or the PDF `papers/<bibkey>.pdf`. A
+  `papers/src/<bibkey>.txt` is an extraction of the PDF that loses symbols: it
+  serves to find the place, and the PDF page is then read. For each `\cite`
+  the reader finds the section or equation the text names and confirms that it
+  says what the passage attributes to it, in the stated notation.
+- Observed numerically: the reader runs what the repository names as the
+  origin of the numbers and compares each number in the tables and in the
+  sentences with the output. A number that nothing in the repository reproduces is reported
+  as such, whether or not it is right. A computation too slow to repeat is
+  named, and its numbers are reported as not verified.
+
+A kind of claim the passage does not make is left out of the brief. Notes
+that lay out known results may hold no number of their own, and a calculation
+may cite little.
 
 Brief, to be filled in:
 
@@ -71,7 +86,7 @@ Brief, to be filled in:
 Read-only: do not edit any file. Repository: <path>.
 
 You are <the intended reader: e.g. a first-year graduate student in the field>
-reading these notes to learn the material. Read ONE passage in order, without
+reading this document for the first time. Read ONE passage in order, without
 skipping ahead: <file>, from <first line> to just before <next heading>.
 You may look up what it cites: <files / sections>. Read <approved passage>
 once: the author approved its style and wants this passage to read like it.
@@ -97,14 +112,15 @@ Report briefly, most important first:
 7. Citations. For every \cite in the passage, open the TeX source
    papers/src/<bibkey>.tex or the PDF papers/<bibkey>.pdf (a .txt in
    papers/src is only an extraction: use it to locate the page, then read the
-   PDF), and find the section or equation the passage names. Report per citation: confirmed (with the
-   location you found), wrong or imprecise (what the source actually says), or
-   could not be checked (why). A source that is missing or unreadable is
-   reported, not passed.
-8. Numbers. Run each script named in the source comments of the passage
-   (<how to run them; which are too slow to run>). For every number in a
-   table or a sentence, say whether the output contains it, to the digits
-   quoted. List the numbers that no committed script prints.
+   PDF), and find the section or equation the passage names. Report per
+   citation: confirmed (with the location you found), wrong or imprecise
+   (what the source actually says), or could not be checked (why). A source
+   that is missing or unreadable is reported, not passed.
+8. Numbers. <Leave this item out if the passage has none of its own.> Run
+   <what the repository names as their origin; how to run it; what is too
+   slow to run>. For every number in a table or a sentence, say whether the
+   output contains it, to the digits quoted. List the numbers that nothing in
+   the repository reproduces.
 Judge by the standard of the approved passage, not a stricter one. Where a
 rule is broken throughout, say so once and give the worst cases.
 Do not rewrite the passage. Do not comment on other parts of the file.
@@ -128,18 +144,18 @@ another, which the writer does not see.
 - A request for more explanation is weighed, not obeyed. A cold reader asks
   for everything to be declared and proved in place. Add what removes a
   stopping point, and nothing that only makes the passage longer.
+- What the reader found is not yet something the text can rest on. A number
+  or a result that exists only in the reader's own working does not go into
+  the text: reproduce it from what the repository holds and quote that, or
+  state the finding without the number.
 - Rebuild and look at the rendered pages.
-
-- A number or a result that exists only in the reader's own script does not
-  go into the text. Commit the script, run it yourself, and quote its output,
-  or state the finding without the number.
 
 If the fixes changed the structure of the passage (a new step, a different
 order), run step 2 again with a new agent. If they were local, do not run it
-again, but check each corrected statement of fact against its script or its
-source yourself (`rules/checks.md`). In a second read of a passage that was
-corrected, name the corrected lines to the reader as lines to check, without
-saying what was wrong with them.
+again, but check each corrected statement of fact against what it rests on
+yourself. In a second read of a passage that was corrected, name the corrected
+lines to the reader as lines to check, without saying what was wrong with
+them.
 
 ## 4. Report to the author
 
