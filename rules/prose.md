@@ -32,3 +32,12 @@ sentence. When a passage breaks a rule, rewrite or delete it.
   letter stands for one object.
 - After writing, read each sentence and ask what the reader loses if it is
   deleted. If nothing, delete it.
+- A section does not open with a rhetorical question or with a sentence on
+  why the topic matters. It opens with the object, what is asked of it, and
+  who solved it.
+- A word of judgment ("important", "useful", "in practice", "usually") is
+  written only where a cited source says it, with the number or the range of
+  that source.
+- A report of another paper's work gives what was done, in order, the result
+  with the scope the paper gives it, and its figure. The paper's own cautions,
+  advice and side observations stay out unless the text uses them later.
