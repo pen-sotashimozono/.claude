@@ -20,7 +20,7 @@ as a git submodule at `.claude`.
 | `skills/release-log/` | bring a document's released PDFs and diffs to this machine, with a page of what changed |
 | `skills/references/` | citations through doiget |
 | `skills/figure-pages/` | an equation, tensor diagram or drawing as a figure page |
-| `skills/paper-figures/` | a cited paper's own figure, extracted as SVG |
+| `skills/paper-figures/` | a cited paper's own figure, extracted as PDF for a document, SVG for a slide |
 
 The skills name scripts under `.github/` of the repository they run in
 (`bump.sh`, `refs_sync.sh`, `build.sh`, …), so they belong with that template.
