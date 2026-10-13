@@ -13,6 +13,7 @@ as a git submodule at `.claude`.
 | `rules/sectioning.md` | where a document is divided and what the headings say, measured against the tables of contents of published reviews; dividing is not editing |
 | `rules/citing.md` | how the text points at a figure, a table or a source: plain sentences, two forms of mention used side by side, no template |
 | `rules/checks.md` | what the writer does before and after writing; results go in the reply, not in the text |
+| `rules/viewing.md` | the author reads in a viewer only (PDF, HTML page, pptx): changes are shown rendered, never as source or diff text |
 | `rules/review-notes.md` | for notes that lay out known results: questions the reader must be able to answer |
 | `skills/sectioning/` | the table of contents before the text: list the units, give each one home, compare with published heading trees, test the draft, show the author before moving anything |
 | `skills/changelog/` | record a change and bump the version |
