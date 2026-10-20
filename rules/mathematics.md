@@ -7,12 +7,21 @@ unless its `CLAUDE.md` lists this file under "Rules not in force".
   equation, and the prose between two displays is the one sentence that says
   what was used to get from one to the next. A paragraph without a displayed
   equation, in a section that derives something, is a sign that the
-  calculation has been replaced by a description of it.
+  calculation has been replaced by a description of it. "Write it" or "show
+  it" asks for the computation (matrix elements, commutators, limits,
+  expansions), from definitions already in the document and adding nothing
+  they do not give. Its result is checked against numbers the text already
+  states.
 - Put a result first, then its derivation, in one continuous chain of
   equalities where possible. A derivation opens with one sentence of goal and
   the target equation, and says why that form can be reached, by the property
   or the earlier result that guarantees it ("$M$ is real and antisymmetric, so
-  as shown in Appendix A.1.1 it can be brought to …").
+  as shown in Appendix A.1.1 it can be brought to …"). It ends with the
+  sentence that states what it has shown. A display, even the final
+  inequality, is not its end.
+- A derivation starts from the restated definition, and its first
+  substitution is written term by term. A standard result is quoted in one
+  line with its source and is not derived again.
 - Each step is a display, introduced by a short phrase that says what the step
   is for or what it uses ("The rows of $iMv = -\epsilon v$ are", "With the
   projector onto $P = p$,"). A bare imperative with no purpose, or two displays
@@ -38,7 +47,8 @@ unless its `CLAUDE.md` lists this file under "Rules not in force".
   shown.
 - Write matrices out (a small explicit case) when a matrix is defined by its
   entries, and say which space a matrix acts on.
-- Kets are tensor products; sums are written with their ranges.
+- Kets are tensor products; sums are written with their ranges. The scope of
+  Tr, Var and an average is shown by brackets.
 - Statements that are proved are `theorem` + `proof`; side definitions are
   `remark`. Theorem, Lemma, Proposition, Definition and Remark share one
   counter per section.
@@ -48,3 +58,14 @@ unless its `CLAUDE.md` lists this file under "Rules not in force".
 - A statement lists every hypothesis it needs, in the statement itself.
 - An identity that several proofs use is stated once, in a remark, and cited
   from there. It is not re-derived in place.
+- A formula that holds only in a special case is displayed with one sentence
+  on why it holds there and one sentence saying it does not hold in general.
+  Its counting gets no derivation.
+- A bound that is not reached in general is said to be so, with a one-line
+  counterexample.
+- A step that chooses among alternatives states in one clause the constraint
+  that makes them the only ones.
+- When data are fitted, three objects are kept apart and each is named once:
+  the unknown distribution, the model fitted to it, and the state or network
+  that represents the model. The text says what the fit objective measures
+  against the unknown distribution.

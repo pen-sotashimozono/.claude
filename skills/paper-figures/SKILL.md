@@ -8,7 +8,16 @@ description: Use a cited paper's own figure - extract it from the paper's arXiv 
 A figure that shows another paper's result is shown as **that paper's own
 figure**. Drawing an imitation of it in `figures/src/` is not
 allowed: our own pages are only for our derivations and our own computed
-numbers.
+numbers. Before drawing a conceptual picture (a manifold, a tangent space),
+search the captions of the cited papers for one. Use the paper's own figure
+where it exists, and in the caption tie its labels to the document's names.
+
+Choose a figure by the sentence it must support, not by its position in the
+paper. The figure shows the number or behaviour the text states, and the
+reader can say its message in one sentence. Prefer the paper's small solvable
+case to a large case whose quantity saturates at a cap. From a composite,
+crop the one panel that carries the conclusion, cut off its panel letter, and
+name the file `fig<N><letter>`.
 
 ```sh
 python3 .github/tools/figures/paper_figures.py <bibkey> [--svg]                              # every figure, from the arXiv source
@@ -24,8 +33,9 @@ keep only that one for a figure:
 | a LaTeX document (notes, paper) | **PDF**, the default | `<bibkey>-fig<N>.pdf` |
 | a slide or a storyboard page | **SVG**, with `--svg` | `<bibkey>-fig<N>.svg` |
 
-A figure built from several files is `<bibkey>-fig<N>a`, `…b`, in include
-order.
+When the arXiv source splits one figure into several files, the script
+writes `<bibkey>-fig<N>a`, `…b`, in include order. Crop the printed page
+instead, so that the figure is one file.
 
 - **PDF** carries no caption. The caption is printed when a figure is
   extracted; read it there or in the paper (`pdftotext papers/<bibkey>.pdf - | grep -A2 'FIG. '`)
@@ -37,7 +47,8 @@ order.
   grep -o '<desc>[^<]*' figures/papers/<bibkey>-fig*.svg | cut -c1-200
   ```
 
-A figure that nothing includes or links is deleted.
+A figure that nothing includes or links, or whose sentence in the text is
+gone, is deleted with its files.
 
 ## Which route
 
@@ -69,5 +80,9 @@ A figure that nothing includes or links is deleted.
 - Take only the figures that are used (give their numbers). Re-running with
   numbers replaces just those; without numbers, every `-fig*` of that format
   for the key is rewritten. Never edit these files by hand.
+- Extracting with a figure number overwrites the file of that number, even
+  if it is a hand crop with a different box (arXiv numbering is not the
+  crop's numbering). Use `crop` for a figure that already exists, restore any
+  file overwritten by mistake, and delete the files that nothing includes.
 - To find the number first, read the captions in the PDF
   (`pdftotext papers/<bibkey>.pdf - | grep -A2 'FIG. '`).

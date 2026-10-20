@@ -12,7 +12,15 @@ what is shown and how.
   stands in for the change. A change is shown in the rendered file.
 - A change to a document is shown as a rendered diff (`latexdiff` PDF, or the
   before and after pages of a pptx), cut to the pages that changed, with the
-  path of that file and the page numbers of the changes in the reply.
+  path of that file and the page numbers of the changes in the reply. "What
+  changed" is measured from the latest release of the document
+  (`diff.sh -d <id> v<latest>-<id>`) unless the author names another
+  baseline. When asked what was done to a passage, read the diff first, and
+  say "only trimmed" if that is all.
+- A diff PDF is current only if it is newer than the last edit. With
+  `auto_diff`, it renders in the background after the build, so wait until
+  `out/tmp/auto-diff.lock` is gone before saying it is current. A `diff.sh`
+  started before the last edit is stopped and run again.
 - A change that cannot be seen in the rendered file (a rule, a script, a
   build setting) is described in plain words, with what the author will notice
   in the viewer because of it. Names of files and commands are given only as
