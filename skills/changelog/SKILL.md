@@ -24,10 +24,9 @@ deserved; name a document explicitly only when `--affected` gets it wrong.
 - **Build first.** `--affected` reads the build records under `out/`.
 - **Commit the content first.** It compares `git diff main...HEAD` — commits,
   not the working tree. Run it before committing and it finds nothing.
-- **Compare against `main` as GitHub has it.** `--affected` uses the local
-  `main`, and the local `main` of a worktree is often behind, which gives the
-  wrong set. Run `git fetch origin main:main` first. If git refuses because
-  `main` is checked out in another worktree, read the set from
+- **Compare against `main` as GitHub has it.** Run `git fetch origin main:main`
+  first. If git refuses because `main` is checked out in another worktree,
+  read the set from
   `python3 .github/scripts/closure.py affected --base origin/main` and bump
   those documents by name.
 

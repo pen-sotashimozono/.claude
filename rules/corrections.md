@@ -28,5 +28,3 @@ author's own plugin and is not repeated here.
   sought for it.
 - A passage the author pastes back as hard to follow is an objection to its
   logic. Rebuild the order of the argument. Do not polish the wording.
-- Where a fuller reading of a result is possible, offer it in the reply. The
-  text gets only what the author chooses.
