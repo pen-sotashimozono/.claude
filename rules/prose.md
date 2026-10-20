@@ -55,9 +55,25 @@ sentence. When a passage breaks a rule, rewrite or delete it.
 - A word of judgment ("important", "useful", "in practice", "usually") is
   written only where a cited source says it, with the number or the range of
   that source.
-- A report of another paper's work gives what was done, in order, the result
-  with the scope the paper gives it, and its figure. The paper's own cautions,
-  advice and side observations stay out unless the text uses them later.
+- A report of another paper's work opens with the problem before the result.
+  It says what the data are (what one sample is), what is wanted from them,
+  and why that is hard, with the cost or the scaling the paper gives. Then it
+  gives the idea and the one fact that makes it plausible, what was done, in
+  order, the quantity measured, the dependence that decides whether the idea
+  helps, the comparison at equal resources, the result with the scope the
+  paper gives it, and its figure. Each stage is a few sentences carrying the
+  paper's numbers. The paper's own cautions, advice and side observations
+  stay out unless the text uses them later. What can be done with a result is
+  said only as the paper says it, and what the paper proposes as future work
+  is left out.
+- A measured quantity in such a report is introduced with what it decides:
+  what depends on it, and for which values the method wins. Each case is then
+  read against that criterion, including any case the paper says the method
+  does not win. A quantity used as a criterion first says what each of its
+  values means for the object.
+- When a paper writes a field object as an MPS, the report says how the array
+  gets its indices, how the chain follows, what a bond separates, and which
+  measured quantity is the bond dimension that bond needs.
 - Write for the reader named in the repository's `CLAUDE.md`, and assume
   nothing else. A term from another field ("multi-configuration", "active
   space") is introduced by the problem it solves, in plain words. An
