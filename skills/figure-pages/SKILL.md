@@ -98,6 +98,32 @@ collide, a line can run off, a symbol can come out wrong. Check labels and
 lengths on a render at 200 to 300 dpi, not by eye. A label touching a node or
 another index is moved one or two millimetres at a time until it is clear.
 
+## Pitfalls
+
+Each of these has cost a failed build or a misdrawn page.
+
+- A triangle (`canl`, `canr`) is placed by its flat-side corner, so its
+  flat-side index comes out about twice as long as its apex-side index. To
+  even them, shift the neighbouring centre-anchored nodes with a style
+  declared inside the `tikzpicture` (declared before `\begin{document}` it
+  fails). `xshift` has no effect on a leg-anchored type.
+- `\tnframe` and `\tnmid` need real node names, never a dots slot.
+- An xcolor mix is at most 100 percent: `canr!120!black` stops the build.
+- `build.sh` takes a topic or the path of a page file, not `<topic>/<page>`.
+
+## Moving the tikz-tensors pin
+
+1. Copy `figures/generated/` aside as the baseline (it is not in git).
+2. Run `tikz-tensors.sh pin latest` and read the package CHANGELOG between
+   the two versions.
+3. Take out of `notation.tex` what the package now ships, and rewrite every
+   renamed command in the pages with one regex pass.
+4. Run `build.sh --pdf-only`, then compare old and new pages by the hash of a
+   60 dpi render. Only pages that use a changed shape may differ. Look at
+   those pages side by side, and say how many were not looked at.
+5. The documents must then build without warnings, and the PR needs
+   `bump.sh --affected`.
+
 ## Renaming or moving pages
 
 Pages refer to each other by path in their comments, and documents include
