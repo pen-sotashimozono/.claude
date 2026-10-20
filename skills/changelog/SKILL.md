@@ -19,13 +19,19 @@ latexmk main.tex && latexmk notes.tex
 stub each, headed by the tag it will release under. Use `minor` or `major` where
 deserved; name a document explicitly only when `--affected` gets it wrong.
 
-## Two preconditions, both easy to miss
+## Three preconditions, all easy to miss
 
 - **Build first.** `--affected` reads the build records under `out/`.
 - **Commit the content first.** It compares `git diff main...HEAD` — commits,
   not the working tree. Run it before committing and it finds nothing.
+- **Compare against `main` as GitHub has it.** `--affected` uses the local
+  `main`, and the local `main` of a worktree is often behind, which gives the
+  wrong set. Run `git fetch origin main:main` first. If git refuses because
+  `main` is checked out in another worktree, read the set from
+  `python3 .github/scripts/closure.py affected --base origin/main` and bump
+  those documents by name.
 
-So: commit the writing, bump, commit the bump.
+So: commit the writing, fetch `main`, bump, commit the bump.
 
 ## The summary
 
@@ -45,6 +51,13 @@ rejects anything that is not unchanged-or-one-step.
 
 Comparison is against the current tip of `main`; if another PR merged first,
 merge `main` in and re-bump.
+
+A bump is one step from `main`'s version, once per PR, and `bump.sh` steps
+again each time it runs. If the PR already carries that step, add the new
+change to that version's CHANGELOG entry and do not run `bump.sh` again,
+because a second step fails `Validate semver step`. A PR that touches no
+document's closure carries no bump: restore `docs.toml` and
+`.github/CHANGELOG.md` from `origin/main`.
 
 ## A new document
 
