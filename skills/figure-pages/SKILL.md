@@ -47,7 +47,10 @@ one page of each kind; delete it once a real topic exists.
   types (`fn` a function of position on `cont` wavy legs, `coef` an array,
   `op` an operator, `canl`/`canr`/`center` the canonical form, …), and a
   project changes it to its own. A meaning it lacks is added there once, never
-  styled by hand in a page.
+  styled by hand in a page: a node type, with a comment naming the paper it
+  follows, used in every page that draws the object. One figure alone does
+  not get its own type. A style is not taken from one paper's picture on a
+  guess: name the paper and the figure, show one rendered page, and ask.
   Draw on a layout, not with coordinates: `\tnstack{X}{<sites>}{<layers>}`,
   `\tnlayer{X}{<layer>}{<type>/<label>, …}`, `\tnconnect{X}`,
   `\tnopen[label=…]{down}{X}` for the open indices, `\tnmid` / `\tnput` for
@@ -91,7 +94,9 @@ qlmanage -t -s 900 -o /tmp figures/generated/02-method/01-energy.svg   # macOS p
   mirrors `src/`. It never reads or writes `assets/`.
 
 Always look at the rendered page before reporting it done — a label can
-collide, a line can run off, a symbol can come out wrong.
+collide, a line can run off, a symbol can come out wrong. Check labels and
+lengths on a render at 200 to 300 dpi, not by eye. A label touching a node or
+another index is moved one or two millimetres at a time until it is clear.
 
 ## Renaming or moving pages
 
