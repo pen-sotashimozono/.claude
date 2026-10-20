@@ -18,11 +18,6 @@ never into the document as sentences. In force in every repository unless its
 - Open the source before citing it and find the passage. A work that could not
   be read supports an attribution ("the theorem is due to …"), not a statement
   of content. The reply lists the citations that could not be checked.
-- When one claim of a passage is questioned, audit every claim of the passage
-  against the source, including claims inherited from an earlier draft. The
-  reply says what was wrong, what matched, and what is general knowledge.
-  Before concluding that a source does not state something, list all of its
-  section headings (Methods included) and search each one.
 - When a cited paper contradicts its own definitions or the document's
   derivation, keep the derivable result, leave the paper's number out, and
   say so in the reply.
