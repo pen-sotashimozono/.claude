@@ -139,8 +139,9 @@ another, which the writer does not see.
 - A citation that is wrong or imprecise is corrected from the source. One
   that could not be checked supports an attribution only, and is named in the
   report to the author.
-- "Did not know why": add the reason at that point, as one sentence about the
-  subject, or reorder so that the reason comes first.
+- "Did not know why": reorder so that the reason comes first. Only a reason
+  the passage does not give at all is added, as one sentence about the
+  subject at that point (`rules/corrections.md`).
 - A request for more explanation is weighed, not obeyed. A cold reader asks
   for everything to be declared and proved in place. Add what removes a
   stopping point, and nothing that only makes the passage longer.
@@ -159,8 +160,9 @@ them.
 
 ## 4. Report to the author
 
-Show the passage together with what the read found and what was changed, in a
-few lines. Say what was not fixed and why. The author then reads a passage
+Show the passage in the file the author reads it in (`rules/viewing.md`),
+together with what the read found and what was changed, in a few lines. Say
+what was not fixed and why. The author then reads a passage
 whose defects of this kind are already gone, and the report tells them where
 to look.
 
