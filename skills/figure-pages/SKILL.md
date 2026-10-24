@@ -47,7 +47,10 @@ one page of each kind; delete it once a real topic exists.
   types (`fn` a function of position on `cont` wavy legs, `coef` an array,
   `op` an operator, `canl`/`canr`/`center` the canonical form, …), and a
   project changes it to its own. A meaning it lacks is added there once, never
-  styled by hand in a page.
+  styled by hand in a page: a node type, with a comment naming the paper it
+  follows, used in every page that draws the object. One figure alone does
+  not get its own type. A style is not taken from one paper's picture on a
+  guess: name the paper and the figure, show one rendered page, and ask.
   Draw on a layout, not with coordinates: `\tnstack{X}{<sites>}{<layers>}`,
   `\tnlayer{X}{<layer>}{<type>/<label>, …}`, `\tnconnect{X}`,
   `\tnopen[label=…]{down}{X}` for the open indices, `\tnmid` / `\tnput` for
@@ -91,7 +94,35 @@ qlmanage -t -s 900 -o /tmp figures/generated/02-method/01-energy.svg   # macOS p
   mirrors `src/`. It never reads or writes `assets/`.
 
 Always look at the rendered page before reporting it done — a label can
-collide, a line can run off, a symbol can come out wrong.
+collide, a line can run off, a symbol can come out wrong. Check labels and
+lengths on a render at 200 to 300 dpi, not by eye. A label touching a node or
+another index is moved one or two millimetres at a time until it is clear.
+
+## Pitfalls
+
+Each of these has cost a failed build or a misdrawn page.
+
+- A triangle (`canl`, `canr`) is placed by its flat-side corner, so its
+  flat-side index comes out about twice as long as its apex-side index. To
+  even them, shift the neighbouring centre-anchored nodes with a style
+  declared inside the `tikzpicture` (declared before `\begin{document}` it
+  fails). `xshift` has no effect on a leg-anchored type.
+- `\tnframe` and `\tnmid` need real node names, never a dots slot.
+- An xcolor mix is at most 100 percent: `canr!120!black` stops the build.
+- `build.sh` takes a topic or the path of a page file, not `<topic>/<page>`.
+
+## Moving the tikz-tensors pin
+
+1. Copy `figures/generated/` aside as the baseline (it is not in git).
+2. Run `tikz-tensors.sh pin latest` and read the package CHANGELOG between
+   the two versions.
+3. Take out of `notation.tex` what the package now ships, and rewrite every
+   renamed command in the pages with one regex pass.
+4. Run `build.sh --pdf-only`, then compare old and new pages by the hash of a
+   60 dpi render. Only pages that use a changed shape may differ. Look at
+   those pages side by side, and say how many were not looked at.
+5. The documents must then build without warnings, and the PR needs
+   `bump.sh --affected`.
 
 ## Renaming or moving pages
 

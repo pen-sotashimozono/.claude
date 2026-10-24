@@ -13,6 +13,8 @@ as a git submodule at `.claude`.
 | `rules/sectioning.md` | where a document is divided and what the headings say, measured against the tables of contents of published reviews; dividing is not editing |
 | `rules/citing.md` | how the text points at a figure, a table or a source: plain sentences, two forms of mention used side by side, no template |
 | `rules/checks.md` | what the writer does before and after writing; results go in the reply, not in the text |
+| `rules/corrections.md` | how the author's corrections are answered: a cut or a reorder |
+| `rules/diagrams.md` | how tensor diagrams carry the text: no formula restating a diagram, one grid for all rows, a tensor keeps its rank |
 | `rules/viewing.md` | the author reads in a viewer only (PDF, HTML page, pptx): changes are shown rendered, never as source or diff text |
 | `rules/review-notes.md` | for notes that lay out known results: questions the reader must be able to answer |
 | `skills/cold-read/` | a first reader before the author: self-read, then a reader who did not write the passage, who also audits every rule in force and checks each claim against what it rests on |
@@ -43,8 +45,8 @@ phrased as "say X" were tried and produced text in which every result was
 followed by a sentence about its status, its use and its limits, with twice
 the prose and fewer equations than the sections they were modelled on. The
 rules are therefore of three kinds. `prose.md`, `mathematics.md`,
-`structure.md` and `citing.md` say what the text looks like. `checks.md` says what the writer
-does, and its results are reported to the author in the reply. `review-notes.md`
+`structure.md`, `citing.md` and `diagrams.md` say what the text looks like. `checks.md` and `corrections.md` say what the writer
+does, and their results are reported to the author in the reply. `review-notes.md`
 lists questions the text must answer, by its content and order.
 
 ## Which rules are in force
